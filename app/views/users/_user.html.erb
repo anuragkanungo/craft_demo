@@ -11,13 +11,21 @@
           </button>
         </div>
         <div class="btn-group" role="group">
-          <button type="button" id="followers" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-            <div class="hidden-xs">Followers: <%= user.following.size %></div>
+          <button type="button" id="followers" class="btn btn-default"
+                  <% if current_user.id == user.id %>
+                  onclick="location.href='<%= show_followers_path%>'"
+                  <%end %>
+                  href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            <div class="hidden-xs">Followers: <%= user.followers.size %></div>
           </button>
         </div>
         <div class="btn-group" role="group">
-          <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            <div class="hidden-xs">Following: <%= user.followers.size %></div>
+          <button type="button" id="following" class="btn btn-default"
+                  <% if current_user.id == user.id %>
+                  onclick="location.href='<%= show_following_path%>'"
+                  <%end %>
+                  href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <div class="hidden-xs">Following: <%= user.following.size %></div>
           </button>
         </div>
       </div>
