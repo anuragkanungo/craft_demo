@@ -17,11 +17,9 @@ deploy:
   access_key_id: AKIAINPKUQQ2473NXDGQ
   secret_access_key:
     secure: PjYbB2EzHqCvpj3k6YI8Lyg3ZgcJ7MQNyPGZaMUVhjf+t4yA3AA5deCDiB79SLYap0KrZojmqdBRe1SC0pZ4jzcwTTWnQ/N3DrMXE+FBvzEvwZTP3RrQwtpQy/SKLwIg9TVmxStv1kMVNdqtFuJU+ylNAptaNQukS47tGvhEtClYjk6McoYnssU3g9imxAGoeI7DrImMmGEYldsgRvwANuOZ09H993rv3F3PzkwSEbUakxg+uU2arDNq/94agwFl2JFK+4qDAPJGsHvnQLuFLmhAFBBLoInmxTMt4zDMA38jeShEZXKWkFrFRtYlQUAoW+XJsSGKAaajzhqXGHZiRF3sCpFcfYwW6wZoQuBDNNSnDeWdh2XkMCUIYfo3t/BNo0olb8ngiFZ7sLA5AHkwI6LX1Awq9XsbOBnUbqR6onj5d/ULz7Z7FgVTF6M2CQQ8iGYPhm0YsttqEM7n3s3uXmT1MogP95FZgOsyaSEslnuaEQxZurlOOvYeYdYXmnVI75XkBsv/3PEzpriwVjK6eumaca0xOPIHnCrHNcFM7EldIlxUrANjSCCXipNd3aTyB9hhACHBHS0aC48LbCrffLuzIQ3OlrzgtVwfxvW/mSr6XjglBx+TX0rSrxtd66eecLY99QBIpyclbziJqc4PGRs+hu272gZx5jk4amaLTlM=
-  bucket: ''
-  key: ''
-  bundle_type: ''
-  application: craft_demo
-  deployment_group: ''
+  bucket: 'S3 Bucket'
   revision_type: github
+  application: craft_demo
+  deployment_group: 'Intuit'
   on:
     repo: anuragkanungo/craft_demo
