@@ -10,11 +10,11 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to :home, notice: 'Tweeted' }
-        format.json { redirect_to :home, notice: 'Tweeted'}
+        format.html { redirect_to :back, notice: 'Tweeted' }
+        format.json { redirect_to :back, notice: 'Tweeted'}
       else
-        format.html { redirect_to :home, notice: 'Failed to Tweet'}
-        format.json { redirect_to :home, notice: 'Failed to Tweet'}
+        format.html { redirect_to :back, notice: 'Failed to Tweet'}
+        format.json { redirect_to :back, notice: 'Failed to Tweet'}
       end
     end
   end
@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     respond_to do |format|
-      format.html { redirect_to :home, notice: 'Tweet deleted.' }
+      format.html { redirect_to :back, notice: 'Tweet deleted.' }
       format.json { head :no_content }
     end
   end

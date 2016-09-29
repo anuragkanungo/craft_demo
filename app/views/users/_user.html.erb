@@ -1,29 +1,29 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Profile:</strong> <em><%= @target_user.email%></em></h3>
+    <h3 class="panel-title"><strong><%= user.email%></strong></h3>
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="btn-pref btn-group btn-group-justified btn-group-lg col-sm-4" role="group" aria-label="...">
         <div class="btn-group" role="group">
-          <button type="button" id="stars" class="btn btn-primary" onclick="location.href='<%= show_user_path(@target_user.id) %>'" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-            <div class="hidden-xs">Tweets done: <%= @target_user.tweets.size %></div>
+          <button type="button" id="stars" class="btn btn-primary" onclick="location.href='<%= show_user_path(user.id) %>'" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <div class="hidden-xs">Tweets done: <%= user.tweets.size %></div>
           </button>
         </div>
         <div class="btn-group" role="group">
           <button type="button" id="followers" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-            <div class="hidden-xs">Followers: <%= @target_user.following.size %></div>
+            <div class="hidden-xs">Followers: <%= user.following.size %></div>
           </button>
         </div>
         <div class="btn-group" role="group">
           <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            <div class="hidden-xs">Following: <%= @target_user.followers.size %></div>
+            <div class="hidden-xs">Following: <%= user.followers.size %></div>
           </button>
         </div>
       </div>
     </div>
     <br/>
-    <% if current_user.id == @target_user.id %>
+    <% if current_user.id == user.id %>
         <div class="row">
           <div class="col-md-4" style="padding-bottom:0">
             <form accept-charset="UTF-8" action="/tweets" method="POST">
@@ -35,13 +35,13 @@
         </div>
     <% end %>
   </div>
-  <% if current_user.id == @target_user.id %>
+  <% if current_user.id == user.id %>
       <div class="panel-footer"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'btn btn-info') %> </div>
   <% else %>
-      <% if current_user.following? @target_user %>
-          <div class="panel-footer"><%= link_to('Unfollow', unfollow_user_path(@target_user.id), :method => :post, class: 'btn btn-error') %> </div>
+      <% if current_user.following? user %>
+          <div class="panel-footer"><%= link_to('Unfollow', unfollow_user_path(user.id), :method => :post, class: 'btn btn-error') %> </div>
       <% else %>
-          <div class="panel-footer"><%= link_to('Follow', follow_user_path(@target_user.id), :method => :post, class: 'btn btn-info') %> </div>
+          <div class="panel-footer"><%= link_to('Follow', follow_user_path(user.id), :method => :post, class: 'btn btn-info') %> </div>
       <%end%>
   <% end %>
 </div>

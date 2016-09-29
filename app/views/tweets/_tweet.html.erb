@@ -1,11 +1,12 @@
 <li>
   <div class="avatar">
-    <a href="<%=show_user_path(tweet.user_id)%>"><img src="http://www.croop.cl/UI/twitter/images/doug.jpg"></a>
+    <a href="<%=show_user_path(tweet.user.id)%>"><img src="http://www.croop.cl/UI/twitter/images/doug.jpg"></a>
     <div class="hover">
       <div class="icon-twitter"></div>
     </div>
   </div>
   <div class="bubble-container">
+    <p style="color: #2084c7"><strong><small><a href="<%=show_user_path(tweet.user.id)%>">@<%= tweet.user.email %></a></small></strong></p>
     <div class="bubble">
       <p style="word-wrap: break-word;"><%= tweet.message %></p>
       <div class="over-bubble">

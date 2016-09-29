@@ -6,7 +6,6 @@ gem 'devise'
 gem "devise_ldap_authenticatable"
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
 gem 'jquery-rails'

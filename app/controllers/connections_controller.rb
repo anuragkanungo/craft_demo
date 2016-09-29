@@ -7,10 +7,11 @@ class ConnectionsController < ApplicationController
 
     def create
       respond_to do |format|
-        if current_user.follow!(User.find(connection_params[:followed_id]))
-          format.html { redirect_to :home, notice: 'Following now' }
+        followed_user = User.find(connection_params[:followed_id])
+        if current_user.follow!(followed_user)
+          format.html { redirect_to :back, notice: "Following #{followed_user.email} now" }
         else
-          format.html { redirect_to :home, notice: 'Failed to start following'}
+          format.html { redirect_to :back, notice: 'Failed to start following'}
         end
       end
     end
@@ -19,7 +20,7 @@ class ConnectionsController < ApplicationController
       @connection = Connection.find_by(follower_id: current_user.id, followed_id: connection_params[:followed_id] )
       @connection.destroy
       respond_to do |format|
-        format.html { redirect_to :home, notice: 'Stopped following' }
+        format.html { redirect_to :back, notice: 'Stopped following' }
       end
     end
 
