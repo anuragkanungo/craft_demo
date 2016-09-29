@@ -2,51 +2,51 @@
 # Uncomment out the merging for each environment that you'd like to include.
 # You can also just copy and paste the tree (do not include the "authorizations") to each
 # environment if you need something different per enviornment.
-authorizations: &AUTHORIZATIONS
-  allow_unauthenticated_bind: false
-  group_base: ou=groups,dc=example,dc=com
-  ## Requires config.ldap_check_group_membership in devise.rb be true
-  # Can have multiple values, must match all to be authorized
-  required_groups:
-    # If only a group name is given, membership will be checked against "uniqueMember"
-    - cn=admins,ou=groups,dc=example,dc=com
-    - cn=users,ou=groups,dc=example,dc=com
-    # If an array is given, the first element will be the attribute to check against, the second the group name
-    - ["moreMembers", "cn=users,ou=groups,dc=example,dc=com"]
-  ## Requires config.ldap_check_attributes in devise.rb to be true
-  ## Can have multiple attributes and values, must match all to be authorized
-  require_attribute:
-    objectClass: inetOrgPerson
-    authorizationRole: postsAdmin
+#authorizations: &AUTHORIZATIONS
+#  allow_unauthenticated_bind: false
+##  group_base: ou=accounts,dc=corp,dc=endurance,dc=com
+#  ## Requires config.ldap_check_group_membership in devise.rb be true
+#  # Can have multiple values, must match all to be authorized
+##  required_groups:
+#    # If only a group name is given, membership will be checked against "uniqueMember"
+##    - cn=admins,ou=groups,dc=example,dc=com
+##    - cn=users,ou=groups,dc=example,dc=com
+#    # If an array is given, the first element will be the attribute to check against, the second the group name
+##    - ["moreMembers", "cn=users,ou=groups,dc=example,dc=com"]
+#  ## Requires config.ldap_check_attributes in devise.rb to be true
+#  ## Can have multiple attributes and values, must match all to be authorized
+#  require_attribute:
+#    objectClass: person
+#    objectCategory: person
 
 ## Environment
-
-development:
-  host: ec2-52-90-88-169.compute-1.amazonaws.com
-  port: 389
-  attribute: cn
-  base: ou=default,dc=example,dc=com
-  admin_user: cn=admin,dc=example,dc=com
-  admin_password: Anurag@123
-  ssl: simple_tls
-  # <<: *AUTHORIZATIONS
 
 test:
   host: ec2-52-90-88-169.compute-1.amazonaws.com
   port: 389
-  attribute: cn
-  base: ou=default,dc=example,dc=com
+  attribute: mail
+  base: ou=Users,dc=example,dc=com
   admin_user: cn=admin,dc=example,dc=com
   admin_password: Anurag@123
-  ssl: simple_tls
+  ssl: no
+  # <<: *AUTHORIZATIONS
+
+development:
+  host: ec2-52-90-88-169.compute-1.amazonaws.com
+  port: 389
+  attribute: mail
+  base: ou=Users,dc=example,dc=com
+  admin_user: cn=admin,dc=example,dc=com
+  admin_password: Anurag@123
+  ssl: no
   # <<: *AUTHORIZATIONS
 
 production:
   host: ec2-52-90-88-169.compute-1.amazonaws.com
   port: 389
-  attribute: cn
-  base: ou=default,dc=example,dc=com
+  attribute: mail
+  base: ou=Users,dc=example,dc=com
   admin_user: cn=admin,dc=example,dc=com
   admin_password: Anurag@123
-  ssl: simple_tls
+  ssl: no
   # <<: *AUTHORIZATIONS
