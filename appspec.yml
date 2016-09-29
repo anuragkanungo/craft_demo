@@ -3,9 +3,7 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/project
-permissions:
-  - object: /home/ubuntu/project
-    owner: ubuntu
+hooks:
   AfterInstall:
     - location: scripts/after_install.sh
       runas: ubuntu
