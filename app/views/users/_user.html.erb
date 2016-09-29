@@ -6,7 +6,7 @@
     <div class="row">
       <div class="btn-pref btn-group btn-group-justified btn-group-lg col-sm-4" role="group" aria-label="...">
         <div class="btn-group" role="group">
-          <button type="button" id="stars" class="btn btn-primary" onclick="location.href='<%= show_user_path(user.id) %>'" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <button type="button" id="stars" class="btn btn-primary" onclick="location.href='<%= show_user_tweets_path(user.id) %>'" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             <div class="hidden-xs">Tweets done: <%= user.tweets.size %></div>
           </button>
         </div>

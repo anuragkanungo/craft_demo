@@ -1,0 +1,18 @@
+<div class="container-fluid well">
+  <div class="col-lg-8">
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <span class="first">
+            All Tweets
+          <span class="icon-edit new"></span>
+        </span>
+        <ul style="list-style: none;" class="timeline">
+          <%= render @tweets %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= will_paginate @tweets %>
+
+<%= render template: 'application/navbar_logged_in' %>
