@@ -1,0 +1,19 @@
+<li>
+  <div class="avatar">
+    <a href="<%=show_user_path(tweet.user_id)%>"><img src="http://www.croop.cl/UI/twitter/images/doug.jpg"></a>
+    <div class="hover">
+      <div class="icon-twitter"></div>
+    </div>
+  </div>
+  <div class="bubble-container">
+    <div class="bubble">
+      <p style="word-wrap: break-word;"><%= tweet.message %></p>
+      <div class="over-bubble">
+        <div class="icon-mail-reply action"></div>
+        <div class="icon-retweet action"></div>
+        <div class="icon-star"></div>
+      </div>
+    </div>
+    <div class="arrow"></div>
+  </div>
+</li>

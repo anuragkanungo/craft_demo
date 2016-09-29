@@ -5,7 +5,7 @@ class CreateTweets < ActiveRecord::Migration[5.0]
       t.numeric :user_id, null: false
 
       t.timestamps
-      t.foreign_key :users, column: :user_id, index: true
+      t.foreign_key :users, column: :user_id, feed: true
     end
   end
 end

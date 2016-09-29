@@ -1,16 +1,10 @@
 class TweetsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  # before_action :ensure_json_request
-
-  def ensure_json_request
-    return if request.format == :json
-    render :nothing => true, :status => 406
-  end
-
 
   def new
     @tweet = Tweet.new(user_id: current_user.id)
   end
+
   def create
     @tweet = current_user.tweets.build(tweet_params)
 

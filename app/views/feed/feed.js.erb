@@ -1,0 +1,2 @@
+$('#feed').append('<%= escape_javascript render(@tweets) %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate(@tweets) %>');

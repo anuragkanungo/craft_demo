@@ -1,0 +1,27 @@
+<div class="container-fluid well">
+  <div class="col-lg-4">
+    <%= render @target_user %>
+  </div>
+  <div class="col-lg-8">
+    <div class="panel panel-success">
+      <div class="panel-body">
+        <span class="first">
+          <% if @target_user.id == current_user.id %>
+              <% if @user_feed %>
+                  My Tweets
+              <% else %>
+                  My Feed
+              <% end %>
+           <% else %>
+              <%= @target_user.email %>
+           <% end %>
+			    <span class="icon-edit new"></span>
+        </span>
+        <ul style="list-style: none;" class="timeline">
+            <%= render @tweets %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= will_paginate @tweets %>

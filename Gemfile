@@ -6,6 +6,7 @@ gem 'devise'
 gem "devise_ldap_authenticatable"
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
@@ -17,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bootstrap-sass'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'pry'
 end
 
 group :assets do
